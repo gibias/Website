@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Climate Quiz</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="1000" height="563"></canvas>
+
+    <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
+    <script>
+      const r = new rive.Rive({
+        src: "https://gibias.github.io/homepage/WPSU/assets/quiz_test.riv",
+        canvas: document.getElementById("canvas"),
+        autoplay: true,
+        stateMachines: "State Machine 1",
+        onLoad: () => {
+          r.resizeDrawingSurfaceToCanvas();
+        },
+      });
+      
+    </script>
+  </body>
+</html>
