@@ -7,6 +7,7 @@
 
     <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
     <script>
+      var score = 0;
       const r = new rive.Rive({
         src: "https://gibias.github.io/homepage/WPSU/assets/quiz_test.riv",
         canvas: document.getElementById("canvas"),
@@ -16,7 +17,7 @@
           r.resizeDrawingSurfaceToCanvas();
           r.setTextRunValue("intro", "Hi there! My name is Carmen, and this is my farm.\n\nCan you help me make it more sustainable?");
           r.setTextRunValue("question01", "My corn is wilting in the field!\nThere has to be a more efficient way to water the crop.\n\nWhich method should I use?");
-          r.setTextRunValue("score", "15");
+          r.setTextRunValue("score", score+15);
         },
       });
       
