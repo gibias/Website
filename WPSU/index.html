@@ -1,3 +1,4 @@
+
 <html>
   <head>
     <title>Climate Quiz WPSU</title>
@@ -7,19 +8,63 @@
 
     <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
     <script>
-      var score = 0;
+      
+	  var score = 0;
+	  stateName = document.querySelector('p')
+	  
       const r = new rive.Rive({
-        src: "https://gibias.github.io/homepage/WPSU/assets/quiz_test.riv",
+		  
+        src: "assets/wpsu_quiz.riv",
         canvas: document.getElementById("canvas"),
+		//shouldDisableRiveListeners: true,
         autoplay: true,
         stateMachines: "main",
+		  
         onLoad: () => {
-          r.resizeDrawingSurfaceToCanvas();
+		  
+		  const inputs = r.stateMachineInputs('main')
+		  const low = inputs.find((i) => i.name === "low");
+		  const mid = inputs.find((i) => i.name === "mid");
+		  const high = inputs.find((i) => i.name === "high");
+				 
+          //r.resizeDrawingSurfaceToCanvas();
           r.setTextRunValue("intro", "Hi there! My name is Carmen, and this is my farm.\n\nCan you help me make it more sustainable?");
           r.setTextRunValue("question01", "My corn is wilting in the field!\nThere has to be a more efficient way to water the crop.\n\nWhich method should I use?");
-          r.setTextRunValue("score", "15");
+          r.setTextRunValue("bt_text03", "Precision Irrigation");
+		  r.setTextRunValue("bt_text02", "Drought-Resistant Vegetables");
+          r.setTextRunValue("bt_text01", "Flood Irrigation");
+		  r.setTextRunValue("q1_bt1_description","I remember seeing my grandpa flood the fields when I was younger.\nIt seems simple - just open the canal and let the water flow.");
+		  r.setTextRunValue("q1_bt2_description","These corn varieties require less water to thrive but may have slightly lower yields.");
+		  r.setTextRunValue("q1_bt3_description","This technology uses GPS and data to deliver water exactly where it's\n needed, minimizing waste. (This may be the most expensive option).");
+		  
+		  
+
+		  
+          r.setTextRunValue("score", "0");
         },
+
       });
+	  
+	  function onRiveEventRecieved(riveEvent) {
+		      const eventData = riveEvent.data;
+		      switch (eventData.name) {
+		        case "but1onClick":
+		          r.setTextRunValue("score", "1");
+		          break;
+		        case "but2onClick":
+		          r.setTextRunValue("score", "2");
+		          break;
+		        case "but3onClick":
+				  r.setTextRunValue("score", "3");
+		          break;
+		        default:
+		          console.log("Unhandled event");
+		          console.log(riveEvent);
+		          break;
+		      }	
+	  }
+	  r.on(rive.EventType.RiveEvent, onRiveEventRecieved);
+
       
     </script>
   </body>
