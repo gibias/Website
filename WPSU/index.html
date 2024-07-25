@@ -8,13 +8,45 @@
 
     <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
     <script>
+       
       
 	  var score = 0;
-	  stateName = document.querySelector('p')
+	  var index = 0;
+	  var points = 0
+	
+	  function loadtext() {
+		  
+		  report_score = score.toString();
+		  r.setTextRunValue("score", report_score);
+		  
+		  if (index == 0) {
+			r.setTextRunValue("intro", "Hi there! My name is Carmen, and this is my farm.\n\nCan you help me make it more sustainable?");
+          	r.setTextRunValue("carmen_questions", "My corn is wilting in the field!\nThere has to be a more efficient way to water the crop.\n\nWhich method should I use?");
+          	r.setTextRunValue("bt_text03", "Precision Irrigation");
+		  	r.setTextRunValue("bt_text02", "Drought-Resistant Vegetables");
+          	r.setTextRunValue("bt_text01", "Flood Irrigation");
+		  	r.setTextRunValue("q1_bt1_description","I remember seeing my grandpa flood the fields when I was younger.\nIt seems simple - just open the canal and let the water flow.");
+		  	r.setTextRunValue("q1_bt2_description","These corn varieties require less water to thrive but may have slightly lower yields.");
+		 	r.setTextRunValue("q1_bt3_description","This technology uses GPS and data to deliver water exactly where it's\n needed, minimizing waste. (This may be the most expensive option).");
+	  		}
+  		  if (index == 1) {
+           	r.setTextRunValue("carmen_questions", "I need to power my farm with an environmentally\nfriendly energy source, and maintain \nprofits. \nCan you help me choose a way to keep the lights on\nand power her equipment?");
+          	r.setTextRunValue("bt_text03", "Stick with Grid Power");
+  		  	r.setTextRunValue("bt_text02", "Combine Solar and \nBattery Storage:");
+            r.setTextRunValue("bt_text01", "Develop a Biogas \nDigester Co-operative:");
+  		  	r.setTextRunValue("q1_bt1_description","This is the most familiar option, but you've heard concerns about the environmental impact of relying on traditional power sources.");
+  		  	r.setTextRunValue("q1_bt2_description","Solar panels can generate clean energy, but you'll need a battery storage system to capture and use the power at night or on cloudy days.");
+  		 	r.setTextRunValue("q1_bt3_description","Working with neighboring farms allows you to share the cost and benefits of a biogas system, creating a more sustainable energy source for multiple farms.");
+
+  	  		}
+		  
+		  
+	  }
+	  
 	  
       const r = new rive.Rive({
 		  
-        src: "assets/wpsu_quiz.riv",
+        src: "./wpsu_quiz_25072024.riv",
         canvas: document.getElementById("canvas"),
 		//shouldDisableRiveListeners: true,
         autoplay: true,
@@ -22,25 +54,13 @@
 		  
         onLoad: () => {
 		  
-		  const inputs = r.stateMachineInputs('main')
-		  const low = inputs.find((i) => i.name === "low");
-		  const mid = inputs.find((i) => i.name === "mid");
-		  const high = inputs.find((i) => i.name === "high");
-				 
-          //r.resizeDrawingSurfaceToCanvas();
-          r.setTextRunValue("intro", "Hi there! My name is Carmen, and this is my farm.\n\nCan you help me make it more sustainable?");
-          r.setTextRunValue("carmen_questions", "My corn is wilting in the field!\nThere has to be a more efficient way to water the crop.\n\nWhich method should I use?");
-          r.setTextRunValue("bt_text03", "Precision Irrigation");
-		  r.setTextRunValue("bt_text02", "Drought-Resistant Vegetables");
-          r.setTextRunValue("bt_text01", "Flood Irrigation");
-		  r.setTextRunValue("q1_bt1_description","I remember seeing my grandpa flood the fields when I was younger.\nIt seems simple - just open the canal and let the water flow.");
-		  r.setTextRunValue("q1_bt2_description","These corn varieties require less water to thrive but may have slightly lower yields.");
-		  r.setTextRunValue("q1_bt3_description","This technology uses GPS and data to deliver water exactly where it's\n needed, minimizing waste. (This may be the most expensive option).");
-		  
-		  
-
-		  
-          r.setTextRunValue("score", "0");
+			loadtext (index);
+		  //const inputs = r.stateMachineInputs('main')
+		  //const low = inputs.find((i) => i.name === "low");
+		  //const mid = inputs.find((i) => i.name === "mid");
+		  //const high = inputs.find((i) => i.name === "high");
+          //r.resizeDrawingSurfaceToCanvas();\
+          
         },
 
       });
@@ -48,26 +68,37 @@
 	  function onRiveEventRecieved(riveEvent) {
 		      const eventData = riveEvent.data;
 		      switch (eventData.name) {
-		        case "but1onClick":
-		          r.setTextRunValue("score", "1");
-				  r.setTextRunValue("carmen_questions", "This should help a little, but not much...");
+			  	case "but1onClick":
+					if (index == 0) {
+						points = 5;
+	  					r.setTextRunValue("carmen_questions", "This should help a little, but not much...");
+					}
 		          break;
 		        case "but2onClick":
-		          r.setTextRunValue("score", "2");
-				  r.setTextRunValue("carmen_questions", "This is a great idea! Thank you for your help!");
+					if (index == 0) {
+						points = 10;
+				  	 	r.setTextRunValue("carmen_questions", "This is a great idea! Thank you for your help!");
+				     }
 		          break;
 		        case "but3onClick":
-				  r.setTextRunValue("score", "3");
-				  r.setTextRunValue("carmen_questions", "This is a good idea, but it's so expensive!");
+					if (index == 0) {
+						points = 15;
+				  		r.setTextRunValue("carmen_questions", "This is a good idea, but it's so expensive!");
+					}
 		          break;
+	        	case "question02":
+		            index = index + 1;
+					score = score + points;
+					loadtext();			
+	          	  break;
 		        default:
 		          console.log("Unhandled event");
 		          console.log(riveEvent);
 		          break;
 		      }	
 	  }
-	  r.on(rive.EventType.RiveEvent, onRiveEventRecieved);
-
+	  r.on(rive.EventType.RiveEvent, onRiveEventRecieved);    
+    
       
     </script>
   </body>
