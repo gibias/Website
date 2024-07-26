@@ -144,13 +144,7 @@
 		            index = index + 1;
 					score = score + points;
 					loadtext();			
-	          	  break;
-
-				case "reset":
-					const inputs = r.stateMachineInputs('main');
-					const resetButtons = inputs.find(i => i.name === 'btnext//reset');
-					resetButtons.fire();
-				  break;
+	          	  break;				
 
 		        default:
 		          console.log("Unhandled event");
