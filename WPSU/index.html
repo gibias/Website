@@ -41,13 +41,13 @@
   	  		}
 
 		  if (index == 2) {
-           	r.setTextRunValue("carmen_questions", "I noticed my yields are not what they were last year. A cooperative extension tested the soil and there were some deficiencies. How can I improve my soil and profits?");
+           	r.setTextRunValue("carmen_questions", "I noticed my yields are not what they were last year.\nA cooperative extension tested the soil and there were some deficiencies. How can I improve my soil and profits?");
 			r.setTextRunValue("bt_text01", "Apply Synthetic Fertilizers");
 			r.setTextRunValue("bt_text02", "Purchase Compost");
 			r.setTextRunValue("bt_text03", "Compost Farm Waste");
   		  	r.setTextRunValue("q1_bt1_description","These are readily available and provide a quick boost to soil nutrients. However, overuse can harm soil ecology and pollute waterways.");
   		  	r.setTextRunValue("q1_bt2_description","Adding compost is an easy way to add organic matter and beneficial microbes, but buying it can be expensive.");
-  		 	r.setTextRunValue("q1_bt3_description","Turning animal manure and leftover plant material into compost is a free way to add organic matter, but it requires space and time for the composting process.");
+  		 	r.setTextRunValue("q1_bt3_description","Turning manure and leftover plant material into compost is a free way to add organic matter, but it requires a lot of space and time.");
   	  		}
 		  
 		  
@@ -92,6 +92,45 @@
 		          break;
 		        case "but3onClick":
 					if (index == 0) {
+						points = 15;
+				  		r.setTextRunValue("carmen_questions", "This is a good idea, but it's so expensive!");
+					}
+		          break;
+
+
+				case "but1onClick":
+					if (index == 1) {
+						points = 5;
+	  					r.setTextRunValue("carmen_questions", "This should help a little, but not much...");
+					}
+		          break;
+		        case "but2onClick":
+					if (index == 1) {
+						points = 10;
+				  	 	r.setTextRunValue("carmen_questions", "This is a great idea! Thank you for your help!");
+				     }
+		          break;
+		        case "but3onClick":
+					if (index == 1) {
+						points = 15;
+				  		r.setTextRunValue("carmen_questions", "This is a good idea, but it's so expensive!");
+					}
+		          break;
+
+				case "but1onClick":
+					if (index == 2) {
+						points = 5;
+	  					r.setTextRunValue("carmen_questions", "This should help a little, but not much...");
+					}
+		          break;
+		        case "but2onClick":
+					if (index == 2) {
+						points = 10;
+				  	 	r.setTextRunValue("carmen_questions", "This is a great idea! Thank you for your help!");
+				     }
+		          break;
+		        case "but3onClick":
+					if (index == 2) {
 						points = 15;
 				  		r.setTextRunValue("carmen_questions", "This is a good idea, but it's so expensive!");
 					}
