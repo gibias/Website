@@ -146,6 +146,12 @@
 					loadtext();			
 	          	  break;
 
+				case "reset":
+					const inputs = r.stateMachineInputs('main');
+					const resetButtons = inputs.find(i => i.name === 'reset');
+					resetButtons.fire();
+				  break;
+
 		        default:
 		          console.log("Unhandled event");
 		          console.log(riveEvent);
