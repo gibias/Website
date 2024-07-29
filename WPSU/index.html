@@ -7,8 +7,7 @@
     <canvas id="canvas" width="1000" height="563"></canvas>
 
     <script src="https://unpkg.com/@rive-app/canvas@2.10.3"></script>
-    <script>
-       
+    <script>       
       
 	  var score = 0;
 	  var index = 0;
@@ -52,11 +51,9 @@
 
 		  if (index == 3) {
            	r.setTextRunValue("carmen_questions", "Thank you for your help!\nYour final score was " + report_score + " out of 45!\n\nWould you like to play again?");
-			}
+			}	  
 		  
-		  
-	  }
-	  
+	  }	  
 	  
       const r = new rive.Rive({
 		  
@@ -85,55 +82,51 @@
 			  	case "but1onClick":
 					if (index == 0) {
 						points = 5;
-	  					r.setTextRunValue("carmen_questions", "This should help a little, but not much...");
+	  					r.setTextRunValue("carmen_questions", "This is the least efficient option. It wastes a lot of water through evaporation and runoff, especially on uneven terrain. The soil may become waterlogged, hindering root growth.");
 					}
-
 				case "but1onClick":
 					if (index == 1) {
 						points = 5;
-	  					r.setTextRunValue("carmen_questions", "This should help a little, but not much...");
+	  					r.setTextRunValue("carmen_questions", "This is the cheapest option initially, but the long-term cost depends on electricity prices and your farm's energy consumption.");
 					}
-
 				case "but1onClick":
 					if (index == 2) {
 						points = 5;
-	  					r.setTextRunValue("carmen_questions", "This should help a little, but not much...");
+	  					r.setTextRunValue("carmen_questions", "This is the fastest option, but overuse can lead to negative environmental consequences.");
 					}
 		          break;
+
 		        case "but2onClick":
 					if (index == 0) {
-						points = 10;
-				  	 	r.setTextRunValue("carmen_questions", "This is a great idea! Thank you for your help!");
+						points = 15;
+				  	 	r.setTextRunValue("carmen_questions", "This is a good balance between water conservation and yield. While the yield may be slightly lower, it minimizes risks associated with drought conditions.");
 				     }
-
 				case "but2onClick":
 					if (index == 1) {
 						points = 10;
-				  	 	r.setTextRunValue("carmen_questions", "This is a great idea! Thank you for your help!");
+				  	 	r.setTextRunValue("carmen_questions", "This is a reliable and sustainable option, but the cost of batteries can be significant.");
 				     }
-
 				case "but2onClick":
 					if (index == 2) {
 						points = 10;
-				  	 	r.setTextRunValue("carmen_questions", "This is a great idea! Thank you for your help!");
+				  	 	r.setTextRunValue("carmen_questions", "This is a convenient option, but the cost can add up quickly.");
 				     }
 		          break;
+
 		        case "but3onClick":
 					if (index == 0) {
-						points = 15;
-				  		r.setTextRunValue("carmen_questions", "This is a good idea, but it's so expensive!");
+						points = 10;
+				  		r.setTextRunValue("carmen_questions", "This is the most water-efficient option, but the cost may be prohibitive for some farmers.");
 					}
-
 				case "but3onClick":
 					if (index == 1) {
 						points = 15;
-				  		r.setTextRunValue("carmen_questions", "This is a good idea, but it's so expensive!");
+				  		r.setTextRunValue("carmen_questions", "This maximizes resource utilization while fostering community collaboration but, requires cooperation and long-term commitment from participants.");
 					}
-
 				case "but3onClick":
 					if (index == 2) {
 						points = 15;
-				  		r.setTextRunValue("carmen_questions", "This is a good idea, but it's so expensive!");
+				  		r.setTextRunValue("carmen_questions", "This is a free way to create nutrient-rich compost, but it requires upfront effort and space management.");
 					}
 		          break;				
 		        
@@ -168,8 +161,7 @@
 		          break;
 		      }	
 	  }
-	  r.on(rive.EventType.RiveEvent, onRiveEventRecieved);    
-    
+	  r.on(rive.EventType.RiveEvent, onRiveEventRecieved);      
       
     </script>
   </body>
