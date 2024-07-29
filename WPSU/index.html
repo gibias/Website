@@ -49,6 +49,10 @@
   		  	r.setTextRunValue("q1_bt2_description","Adding compost is an easy way to add organic matter and beneficial microbes, but buying it can be expensive.");
   		 	r.setTextRunValue("q1_bt3_description","Turning manure and leftover plant material into compost is a free way to add organic matter, but it requires a lot of space and time.");
   	  		}
+
+		  if (index == 3) {
+           	r.setTextRunValue("carmen_questions", "Thank you for your help!\nYour final score was" + report_score + "out of 45!\n\nWould you like to play again?");
+			}
 		  
 		  
 	  }
@@ -144,7 +148,13 @@
 		            index = index + 1;
 					score = score + points;
 					loadtext();			
-	          	  break;				
+	          	  break;	
+
+				case "endScreen":
+		            index = index + 1;
+					score = score + points;
+					loadtext();			
+	          	  break;			
 
 		        default:
 		          console.log("Unhandled event");
