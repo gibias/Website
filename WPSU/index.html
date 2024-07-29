@@ -154,7 +154,13 @@
 		            index = index + 1;
 					score = score + points;
 					loadtext();			
-	          	  break;			
+	          	  break;	
+
+				case "restart":
+		            index = 0;
+					score = 0;
+					loadtext();			
+	          	  break;		
 
 		        default:
 		          console.log("Unhandled event");
