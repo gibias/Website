@@ -31,11 +31,11 @@
 
   		  if (index == 1) {
            	r.setTextRunValue("carmen_questions", "I need to power my farm with an environmentally friendly energy source, and maintain profits.\nCan you help me choose a way to keep the lights on and power our equipment?");
-			r.setTextRunValue("bt_text01", "Develop a Biogas \nDigester Co-operative");
-			r.setTextRunValue("bt_text02", "Combine Solar and \nBattery Storage");
+			r.setTextRunValue("bt_text02", "Develop a Biogas \nDigester Co-operative");
+			r.setTextRunValue("bt_text01", "Combine Solar and \nBattery Storage");
 			r.setTextRunValue("bt_text03", "Stick with Grid Power");
-  		  	r.setTextRunValue("q1_bt1_description","This is the most familiar option, but you've heard concerns about the environmental impact of relying on traditional power sources.");
-  		  	r.setTextRunValue("q1_bt2_description","Solar panels can generate clean energy, but you'll need a battery storage system to capture and use the power at night or on cloudy days.");
+  		  	r.setTextRunValue("q1_bt2_description","This is the most familiar option, but you've heard concerns about the environmental impact of relying on traditional power sources.");
+  		  	r.setTextRunValue("q1_bt1_description","Solar panels can generate clean energy, but you'll need a battery storage system to capture and use the power at night or on cloudy days.");
   		 	r.setTextRunValue("q1_bt3_description","Working with neighboring farms allows us to share costs and benefits of a biogas system, creating a sustainable energy source for multiple farms.");
   	  		}
 
@@ -106,7 +106,7 @@
 					}
 				case "but1onClick":
 					if (index == 1) {
-						points = 10;
+						points = 15;
 	  					r.setTextRunValue("carmen_questions", "This is the cheapest option initially, but the long-term cost depends on electricity prices and your farm's energy consumption.");
 					}
 				case "but1onClick":
@@ -133,7 +133,7 @@
 				     }
 				case "but2onClick":
 					if (index == 1) {
-						points = 15;
+						points = 10;
 				  	 	r.setTextRunValue("carmen_questions", "This is a reliable and sustainable option, but the cost of batteries can be significant.");
 				     }
 				case "but2onClick":
